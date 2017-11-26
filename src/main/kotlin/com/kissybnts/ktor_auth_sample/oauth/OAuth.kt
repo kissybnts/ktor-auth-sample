@@ -115,7 +115,7 @@ fun Route.oauth(client: HttpClient) {
 data class GithubUser(val login: String, val id: Int, val avatarUrl: String, val name: String)
 
 
-private fun <T : Any> ApplicationCall.redirectUrl(t: T, secure: Boolean = true): String {
+fun <T : Any> ApplicationCall.redirectUrl(t: T, secure: Boolean = true): String {
     val hostPort = request.host()!! + request.port().let { port -> if (port == 80) "" else ":$port" }
     val protocol = when {
         secure -> "https"

@@ -3,6 +3,7 @@ package com.kissybnts.ktor_auth_sample
 import com.fasterxml.jackson.databind.PropertyNamingStrategy
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.kissybnts.ktor_auth_sample.basic.basicAuth
+import com.kissybnts.ktor_auth_sample.jwt.*
 import com.kissybnts.ktor_auth_sample.location.Index
 import com.kissybnts.ktor_auth_sample.location.ResourceId
 import com.kissybnts.ktor_auth_sample.oauth.oauth
@@ -11,16 +12,19 @@ import io.ktor.application.Application
 import io.ktor.application.ApplicationStopping
 import io.ktor.application.call
 import io.ktor.application.install
+import io.ktor.auth.authentication
 import io.ktor.client.HttpClient
 import io.ktor.client.backend.apache.ApacheBackend
 import io.ktor.features.CallLogging
 import io.ktor.features.ContentNegotiation
 import io.ktor.features.DefaultHeaders
+import io.ktor.http.HttpStatusCode
 import io.ktor.jackson.jackson
 import io.ktor.locations.Locations
 import io.ktor.locations.get
 import io.ktor.response.respond
 import io.ktor.routing.Routing
+import io.ktor.routing.get
 import io.ktor.routing.route
 import java.time.LocalDateTime
 import java.util.*
@@ -48,5 +52,11 @@ fun Application.main() {
             client.close()
         }
         oauth(client)
+
+        get("/jwt") {
+            call.respond(generateToken(User(1, "name", AuthenticationProvider.GITHUB.providerId, "hogehoge")))
+        }
+
+        jwt(client)
     }
 }
