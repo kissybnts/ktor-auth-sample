@@ -8,6 +8,7 @@ import com.kissybnts.ktor_auth_sample.jwt.User
 import com.kissybnts.ktor_auth_sample.jwt.generateToken
 import com.kissybnts.ktor_auth_sample.jwt.jwt
 import com.kissybnts.ktor_auth_sample.oauth.oauth
+import com.kissybnts.ktor_auth_sample.post.formPost
 import com.kissybnts.ktor_auth_sample.util.util
 import io.ktor.application.Application
 import io.ktor.application.ApplicationStopping
@@ -54,5 +55,7 @@ fun Application.main() {
         }
 
         jwt(client)
+
+        formPost()
     }
 }
