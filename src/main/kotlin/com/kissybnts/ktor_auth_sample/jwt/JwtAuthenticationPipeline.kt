@@ -19,7 +19,6 @@ import io.ktor.client.utils.url
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
 import io.ktor.http.HttpStatusCode
-import io.ktor.locations.get
 import io.ktor.locations.location
 import io.ktor.locations.oauthAtLocation
 import io.ktor.response.respond

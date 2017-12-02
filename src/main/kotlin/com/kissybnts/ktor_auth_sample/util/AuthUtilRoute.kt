@@ -3,9 +3,6 @@ package com.kissybnts.ktor_auth_sample.util
 import io.ktor.application.ApplicationCallPipeline
 import io.ktor.application.application
 import io.ktor.application.call
-import io.ktor.auth.AuthenticationPipeline
-import io.ktor.client.request.HttpRequestPipeline
-import io.ktor.client.response.HttpResponsePipeline
 import io.ktor.locations.get
 import io.ktor.locations.location
 import io.ktor.response.respond

@@ -16,21 +16,20 @@ import io.ktor.client.call.call
 import io.ktor.client.request.header
 import io.ktor.client.utils.url
 import io.ktor.html.respondHtml
+import io.ktor.http.HttpMethod
 import io.ktor.locations.get
 import io.ktor.locations.location
 import io.ktor.locations.locations
 import io.ktor.locations.oauthAtLocation
 import io.ktor.request.host
 import io.ktor.request.port
+import io.ktor.response.respond
 import io.ktor.routing.Route
 import io.ktor.routing.param
 import kotlinx.coroutines.experimental.asCoroutineDispatcher
-import kotlinx.html.title
-import java.util.concurrent.Executors
 import kotlinx.html.*
-import io.ktor.http.HttpMethod
-import io.ktor.response.respond
 import org.apache.http.HttpHeaders
+import java.util.concurrent.Executors
 
 @location("/oauth/login/{type?}") data class Login(val type: String = "", val code: String? = null, val state: String? = null)
 
